@@ -6,9 +6,9 @@ import bcrypt from "bcryptjs";
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, mobileNumber, password, role } = req.body;
 
-    if (!name || !email || !password || !role) {
+    if (!name || !email || !mobileNumber || !password || !role) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -20,7 +20,7 @@ export const register = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    const user = new User({ name, email, password: hashedPassword, role });
+    const user = new User({ name, email, mobileNumber, password: hashedPassword, role });
     await user.save();
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || "supersecretkey", { expiresIn: "1d" });
@@ -31,6 +31,7 @@ export const register = async (req: Request, res: Response) => {
         id: user._id,
         name: user.name,
         email: user.email,
+        mobileNumber: user.mobileNumber,
         role: user.role,
       },
     });
