@@ -5,6 +5,7 @@ export interface IUser {
   _id: string;
   name: string;
   email: string;
+  mobile_number: string;
   password?: string;
   role: "admin" | "organizer" | "attendee" | "exhibitor" | "sponsor";
   createdAt: Date;
@@ -15,6 +16,7 @@ export interface IUser {
 const UserSchema: Schema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
+  mobileNumber: { type: String, required: true },
   password: { type: String, required: true, select: false },
   role: {
     type: String,

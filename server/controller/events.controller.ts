@@ -7,7 +7,7 @@ import { AuthRequest } from "../middleware/auth";
 
 export const getEvents = async (req: Request, res: Response) => {
   try {
-    const events = await Event.find({ status: "published" }).populate("venue");
+    const events = await Event.find().populate("venue");
     res.json(events);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
@@ -72,6 +72,7 @@ export const deleteEvent = async (req: AuthRequest, res: Response) => {
 };
 
 // --- Session Controllers ---
+// Not completedddddddddddddddddddddd
 
 export const getSessionsByEvent = async (req: Request, res: Response) => {
   try {

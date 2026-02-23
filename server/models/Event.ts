@@ -2,6 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface IEvent {
   _id: string;
+  image: string;
   organizerId: mongoose.Types.ObjectId;
   title: string;
   description: string;
@@ -11,11 +12,10 @@ export interface IEvent {
   venue: mongoose.Types.ObjectId;
   maxCapacity: number;
   ticketPrice: number;
-  status: "draft" | "published" | "cancelled";
-  createdAt: Date;
 }
 
 const EventSchema: Schema = new Schema({
+  image: { type: String, required: true },
   organizerId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
@@ -29,13 +29,7 @@ const EventSchema: Schema = new Schema({
   venue: { type: Schema.Types.ObjectId, ref: "Venue", required: true },
   maxCapacity: { type: Number, required: true },
   ticketPrice: { type: Number, default: 0 },
-  status: {
-    type: String,
-    enum: ["draft", "published", "cancelled"],
-    default: "draft",
-  },
-  createdAt: { type: Date, default: Date.now },
-});
+}, { timestamps: true });
 
 const Event = mongoose.models?.event || mongoose.model<IEvent>("Event", EventSchema);
 export default Event;
