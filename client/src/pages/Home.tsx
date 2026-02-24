@@ -13,7 +13,7 @@ const Home = () => {
     const tasks = useSelector((state: RootState) => state.user)
     console.log(tasks)
     return (
-        <div className="min-h-screen  w-full flex flex-col items-center bg-amber-50 p-5">
+        <div className="min-h-screen  w-full flex flex-col items-center bg-amber-50 sm:p-5">
             <div className="hero mt-25 max-w-md flex flex-col items-center p-3">
                 <h1 className="text-3xl text-center">Event Management at Your Fingertips</h1>
                 <h2 className="text-center text-gray-500 mt-2">Helping you create memorable experiences with ease. Let's turn your vision into reality!</h2>
