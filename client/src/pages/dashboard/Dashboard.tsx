@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div>
               <p className="text-sm text-gray-500">Total Tickets</p>
-              <p className="text-2xl font-bold text-gray-900">{tickets.length}</p>
+              <p className="text-2xl font-bold text-gray-900">{tickets.filter((t) => t.status === "active").length}</p>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div>
               <p className="text-sm text-gray-500">Upcoming Events</p>
-              <p className="text-2xl font-bold text-gray-900">{tickets.filter((t) => new Date(t.eventId.startDate) > new Date()).length}</p>
+              <p className="text-2xl font-bold text-gray-900">{tickets.filter((t) => t.status === "active").filter((t) => new Date(t.eventId.startDate) > new Date()).length}</p>
             </div>
           </div>
         </div>
