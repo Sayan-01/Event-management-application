@@ -16,6 +16,12 @@ import SponsorDashboard from "./pages/SponsorDashboard";
 import SponsorProfile from "./pages/SponsorProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { DashboardLayout, Dashboard, Tickets, TicketDetail, Profile } from "./pages/dashboard/index";
+import CreateEvent from "./pages/CreateEvent";
+import EditEvent from "./pages/EditEvent";
+import ManageAttendee from "./pages/ManageAttendee";
+import ManageVenue from "./pages/ManageVenue";
+import ManageSponsors from "./pages/ManageSponsors";
+import Organizer from "./pages/Organizer";
 
 function App() {
   const router = createBrowserRouter(
@@ -105,6 +111,49 @@ function App() {
               element={<Profile />}
             />
           </Route>
+          <Route
+            path="exhibitor/profile"
+            element={<ExhibitorProfile />}
+          />
+
+          <Route
+            path="sponsor"
+            element={<SponsorDashboard />}
+          />
+          <Route
+            path="sponsor/profile"
+            element={<SponsorProfile />}
+          />
+
+          <Route
+            path="dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="organizer"
+            element={<Organizer />}
+          />
+          <Route
+            path="organizer/events/create"
+            element={<CreateEvent />}
+          />
+          <Route
+            path="organizer/events/:eventId/edit"
+            element={<EditEvent />}
+          />
+          <Route
+            path="organizer/events/:eventId/attendees"
+            element={<ManageAttendee />}
+          />
+          <Route
+            path="organizer/events/:eventId/venue"
+            element={<ManageVenue />}
+          />
+          <Route
+            path="organizer/events/:eventId/sponsors"
+            element={<ManageSponsors />}
+          />
 
           <Route
             path="*"
