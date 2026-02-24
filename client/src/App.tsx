@@ -14,41 +14,65 @@ import MyBooth from './pages/MyBooth'
 import ExhibitorProfile from './pages/ExhibitorProfile'
 import SponsorDashboard from './pages/SponsorDashboard'
 import SponsorProfile from './pages/SponsorProfile'
-import Dashboard from './pages/Dashboard'
-import Organizer from './pages/Organizer'
-import CreateEvent from './pages/CreateEvent'
-import EditEvent from './pages/EditEvent'
-import ManageAttendee from './pages/ManageAttendee'
-import ManageVenue from './pages/ManageVenue'
-import ManageSponsors from './pages/ManageSponsors'
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path='/' element={<Layout />}>
+
           <Route index element={<Home />} />
           <Route path='events' element={<Events />} />
           <Route path='event/:eventId' element={<EventDetails />} />
 
-          <Route path='exhibitor' element={<ExhibitorDashboard />} />
-          <Route path='exhibitor/booth/:id' element={<MyBooth />} />
-          <Route path='exhibitor/profile' element={<ExhibitorProfile />} />
+          {/* 🔒 Exhibitor Protected Routes */}
+          <Route
+            path='exhibitor'
+            element={
+              <ProtectedRoute allowedRoles={['exhibitor']}>
+                <ExhibitorDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path='sponsor' element={<SponsorDashboard />} />
-          <Route path='sponsor/profile' element={<SponsorProfile />} />
+          <Route
+            path='exhibitor/booth/:id'
+            element={
+              <ProtectedRoute allowedRoles={['exhibitor']}>
+                <MyBooth />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path='dashboard' element={<Dashboard />} />
-          
+          <Route
+            path='exhibitor/profile'
+            element={
+              <ProtectedRoute allowedRoles={['exhibitor']}>
+                <ExhibitorProfile />
+              </ProtectedRoute>
+            }
+          />
 
+          {/* 🔒 Sponsor Protected Routes */}
+          <Route
+            path='sponsor'
+            element={
+              <ProtectedRoute allowedRoles={['sponsor']}>
+                <SponsorDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-          
-          <Route path='organizer' element={<Organizer />} />
-          <Route path='organizer/events/create' element={<CreateEvent />} />
-          <Route path='organizer/events/:eventId/edit' element={<EditEvent />} />
-          <Route path='organizer/events/:eventId/attendees' element={<ManageAttendee />} />
-          <Route path='organizer/events/:eventId/venue' element={<ManageVenue />} />
-          <Route path='organizer/events/:eventId/sponsors' element={<ManageSponsors />} />
+          <Route
+            path='sponsor/profile'
+            element={
+              <ProtectedRoute allowedRoles={['sponsor']}>
+                <SponsorProfile />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path='*' element={<NotFound />} />
         </Route>
 
