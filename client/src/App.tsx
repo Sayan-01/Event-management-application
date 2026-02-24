@@ -14,6 +14,13 @@ import MyBooth from './pages/MyBooth'
 import ExhibitorProfile from './pages/ExhibitorProfile'
 import SponsorDashboard from './pages/SponsorDashboard'
 import SponsorProfile from './pages/SponsorProfile'
+import Dashboard from './pages/Dashboard'
+import Organizer from './pages/Organizer'
+import CreateEvent from './pages/CreateEvent'
+import EditEvent from './pages/EditEvent'
+import ManageAttendee from './pages/ManageAttendee'
+import ManageVenue from './pages/ManageVenue'
+import ManageSponsors from './pages/ManageSponsors'
 
 function App() {
   const router = createBrowserRouter(
@@ -31,6 +38,17 @@ function App() {
           <Route path='sponsor' element={<SponsorDashboard />} />
           <Route path='sponsor/profile' element={<SponsorProfile />} />
 
+          <Route path='dashboard' element={<Dashboard />} />
+          
+
+
+          
+          <Route path='organizer' element={<Organizer />} />
+          <Route path='organizer/events/create' element={<CreateEvent />} />
+          <Route path='organizer/events/:eventId/edit' element={<EditEvent />} />
+          <Route path='organizer/events/:eventId/attendees' element={<ManageAttendee />} />
+          <Route path='organizer/events/:eventId/venue' element={<ManageVenue />} />
+          <Route path='organizer/events/:eventId/sponsors' element={<ManageSponsors />} />
           <Route path='*' element={<NotFound />} />
         </Route>
 
