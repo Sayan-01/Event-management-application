@@ -5,8 +5,8 @@ export interface ISponsor {
   eventId: mongoose.Types.ObjectId;
   userId: mongoose.Types.ObjectId;
   companyName: string;
-  tierName: string;
-  benefits: string[];
+  tierName?: string;
+  benefits: string;
   logoUrl: string;
   websiteUrl: string;
   status: "pending" | "active" | "cancelled";
@@ -17,7 +17,7 @@ const SponsorSchema: Schema = new Schema({
   eventId: { type: Schema.Types.ObjectId, ref: "Event", required: true },
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   companyName: { type: String, required: true },
-  tierName: { type: String, required: true },
+  tierName: { type: String },
   benefits: { type: [String], default: [] },
   logoUrl: { type: String },
   websiteUrl: { type: String },
