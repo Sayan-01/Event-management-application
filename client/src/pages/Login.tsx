@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { add } from '../redux/userSlice';
-
+import { type RootState } from "../redux/store";
 
 const Signup: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -66,7 +66,13 @@ const Signup: React.FC = () => {
         }
         registerRequest();
     };
+    const authorization = useSelector((state: RootState) => state.user.authorization);
 
+    useEffect(() => {
+        if (authorization) {
+            navigate('/');
+        }
+    }, [authorization, navigate]);
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">

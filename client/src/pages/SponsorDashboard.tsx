@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { type RootState } from "../redux/store";
 import { Trophy, Image as ImageIcon, BarChart3, Calendar, MapPin, ShieldCheck, ExternalLink, X, PlusCircle, LayoutDashboard, ArrowRight, Loader2, Info } from "lucide-react";
@@ -11,10 +11,12 @@ const SponsorDashboard = () => {
   const [sponsorships, setSponsorships] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("active");
-
+  const navigate = useNavigate()
   const isProfileComplete = (user as any)?.companyName && (user as any)?.logoUrl;
 
   useEffect(() => {
+    console.log(user)
+    if (!user || (user?.role != 'sponsor')) { navigate('/') }
     const fetchSponsorships = async () => {
       try {
         const userId = (user as any)._id || (user as any).id;
@@ -147,13 +149,12 @@ const SponsorDashboard = () => {
                       </div>
                     </div>
                     <div
-                      className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border ${
-                        sponsor.status === "active"
+                      className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border ${sponsor.status === "active"
                           ? "bg-green-50 text-green-700 border-green-100"
                           : sponsor.status === "pending"
                             ? "bg-amber-50 text-amber-700 border-amber-100"
                             : "bg-gray-50 text-gray-700 border-gray-100"
-                      }`}
+                        }`}
                     >
                       {sponsor.status}
                     </div>

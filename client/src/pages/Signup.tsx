@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../redux/userSlice';
+import { type RootState } from "../redux/store";
 
 type UserType = "admin" | "organizer" | "attendee" | "exhibitor" | "sponsor";
 
@@ -78,6 +79,13 @@ const Signup: React.FC = () => {
         registerRequest();
     };
 
+    const authorization = useSelector((state: RootState) => state.user.authorization);
+
+    useEffect(() => {
+        if (authorization) {
+            navigate('/');
+        }
+    }, [authorization, navigate]);
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
@@ -125,7 +133,7 @@ const Signup: React.FC = () => {
                             placeholder="Enter your full name"
                             value={mobileNumber}
                             onChange={(e) => {
-                                if (!(e.target.value.length >10)) {
+                                if (!(e.target.value.length > 10)) {
                                     setMobileNumber(Number(e.target.value))
                                 }
                             }
@@ -175,7 +183,6 @@ const Signup: React.FC = () => {
                         >
                             <option value="organizer">Organizer</option>
                             <option value="attendee">Attendee</option>
-                            <option value="exhibitor">Exhibitor</option>
                             <option value="sponsor">Sponsor</option>
                         </select>
                     </div>

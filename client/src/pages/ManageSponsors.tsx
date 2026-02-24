@@ -57,7 +57,7 @@ const ManageSponsors = () => {
   const filtered = sponsors.filter((s) => s.companyName.toLowerCase().includes(searchTerm.toLowerCase()) || s.tierName.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-amber-50 pb-20 mt-10">
       <div className="bg-white border-b border-gray-100 mb-8">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
           <Link
