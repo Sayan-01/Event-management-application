@@ -26,6 +26,8 @@
 | PUT | /api/events/:id | Organizer (owner) | Update event |
 | DELETE | /api/events/:id | Organizer / Admin | Delete event |
 
+//////////////////////////////////////////////////////////////////
+
 ### 3.4 Sessions / Agenda
 
 | Method | Endpoint | Access | Description |

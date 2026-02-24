@@ -1,88 +1,130 @@
-import './App.css'
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import "./App.css";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 
-import NotFound from './pages/NotFound'
-import Home from './pages/Home'
-import Layout from './Layout'
-import Events from './pages/Events'
-import EventDetails from './pages/EventDetails'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
+import Layout from "./Layout";
+import Events from "./pages/Events";
+import EventDetails from "./pages/EventDetails";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
-import ExhibitorDashboard from './pages/ExhibitorDashboard'
-import MyBooth from './pages/MyBooth'
-import ExhibitorProfile from './pages/ExhibitorProfile'
-import SponsorDashboard from './pages/SponsorDashboard'
-import SponsorProfile from './pages/SponsorProfile'
+import ExhibitorDashboard from "./pages/ExhibitorDashboard";
+import MyBooth from "./pages/MyBooth";
+import ExhibitorProfile from "./pages/ExhibitorProfile";
+import SponsorDashboard from "./pages/SponsorDashboard";
+import SponsorProfile from "./pages/SponsorProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { DashboardLayout, Dashboard, Tickets, TicketDetail, Profile } from "./pages/dashboard/index";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path='/' element={<Layout />}>
-
-          <Route index element={<Home />} />
-          <Route path='events' element={<Events />} />
-          <Route path='event/:eventId' element={<EventDetails />} />
-
-          {/* 🔒 Exhibitor Protected Routes */}
+        <Route
+          path="/"
+          element={<Layout />}
+        >
           <Route
-            path='exhibitor'
+            index
+            element={<Home />}
+          />
+          <Route
+            path="events"
+            element={<Events />}
+          />
+          <Route
+            path="event/:eventId"
+            element={<EventDetails />}
+          />
+
+          <Route
+            path="exhibitor"
             element={
-              <ProtectedRoute allowedRoles={['exhibitor']}>
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
                 <ExhibitorDashboard />
               </ProtectedRoute>
             }
           />
 
           <Route
-            path='exhibitor/booth/:id'
+            path="exhibitor/booth/:id"
             element={
-              <ProtectedRoute allowedRoles={['exhibitor']}>
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
                 <MyBooth />
               </ProtectedRoute>
             }
           />
 
           <Route
-            path='exhibitor/profile'
+            path="exhibitor/profile"
             element={
-              <ProtectedRoute allowedRoles={['exhibitor']}>
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
                 <ExhibitorProfile />
               </ProtectedRoute>
             }
           />
 
-          {/* 🔒 Sponsor Protected Routes */}
           <Route
-            path='sponsor'
+            path="sponsor"
             element={
-              <ProtectedRoute allowedRoles={['sponsor']}>
+              <ProtectedRoute allowedRoles={["sponsor"]}>
                 <SponsorDashboard />
               </ProtectedRoute>
             }
           />
 
           <Route
-            path='sponsor/profile'
+            path="sponsor/profile"
             element={
-              <ProtectedRoute allowedRoles={['sponsor']}>
+              <ProtectedRoute allowedRoles={["sponsor"]}>
                 <SponsorProfile />
               </ProtectedRoute>
             }
           />
 
-          <Route path='*' element={<NotFound />} />
+          {/* Attendee Dashboard Routes */}
+          <Route
+            path="dashboard"
+            element={<DashboardLayout />}
+          >
+            <Route
+              index
+              element={<Dashboard />}
+            />
+            <Route
+              path="tickets"
+              element={<Tickets />}
+            />
+            <Route
+              path="tickets/:id"
+              element={<TicketDetail />}
+            />
+            <Route
+              path="profile"
+              element={<Profile />}
+            />
+          </Route>
+
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
         </Route>
 
-        <Route path='signup' element={<Signup />} />
-        <Route path='login' element={<Login />} />
-      </>
-    )
-  )
+        <Route
+          path="signup"
+          element={<Signup />}
+        />
+        <Route
+          path="login"
+          element={<Login />}
+        />
+      </>,
+    ),
+  );
 
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

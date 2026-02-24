@@ -3,7 +3,7 @@ import Registration from "../models/Registration";
 import Event from "../models/Event";
 import { AuthRequest } from "../middleware/auth";
 
-export const  registerForEvent = async (req: AuthRequest, res: Response) => {
+export const registerForEvent = async (req: AuthRequest, res: Response) => {
   try {
     const event = await Event.findById(req.params.id);
     if (!event) return res.status(404).json({ message: "Event not found" });
@@ -79,6 +79,21 @@ export const cancelRegistration = async (req: AuthRequest, res: Response) => {
     registration.status = "cancelled";
     await registration.save();
     res.json({ message: "Registration cancelled successfully" });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getRegistrationById = async (req: AuthRequest, res: Response) => {
+  try {
+    const registration = await Registration.findById(req.params.id).populate("eventId").populate("userId", "name email");
+    if (!registration) return res.status(404).json({ message: "Registration not found" });
+
+    if (registration.userId._id.toString() !== req.user?._id.toString() && req.user?.role !== "admin") {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    res.json(registration);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
