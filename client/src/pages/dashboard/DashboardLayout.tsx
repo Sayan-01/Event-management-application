@@ -43,7 +43,7 @@ const DashboardLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-100 flex flex-col hidden md:flex">
+      <aside className="w-64 bg-white border-r border-gray-100 hidden md:flex flex-col">
         <div className="p-8">
           <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest">Dashboard</h2>
         </div>

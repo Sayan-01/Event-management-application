@@ -14,7 +14,8 @@ import MyBooth from "./pages/MyBooth";
 import ExhibitorProfile from "./pages/ExhibitorProfile";
 import SponsorDashboard from "./pages/SponsorDashboard";
 import SponsorProfile from "./pages/SponsorProfile";
-import { DashboardLayout, Dashboard, Tickets, TicketDetail, Profile } from "./pages/dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { DashboardLayout, Dashboard, Tickets, TicketDetail, Profile } from "./pages/dashboard/index";
 
 function App() {
   const router = createBrowserRouter(
@@ -39,24 +40,47 @@ function App() {
 
           <Route
             path="exhibitor"
-            element={<ExhibitorDashboard />}
+            element={
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
+                <ExhibitorDashboard />
+              </ProtectedRoute>
+            }
           />
+
           <Route
             path="exhibitor/booth/:id"
-            element={<MyBooth />}
+            element={
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
+                <MyBooth />
+              </ProtectedRoute>
+            }
           />
+
           <Route
             path="exhibitor/profile"
-            element={<ExhibitorProfile />}
+            element={
+              <ProtectedRoute allowedRoles={["exhibitor"]}>
+                <ExhibitorProfile />
+              </ProtectedRoute>
+            }
           />
 
           <Route
             path="sponsor"
-            element={<SponsorDashboard />}
+            element={
+              <ProtectedRoute allowedRoles={["sponsor"]}>
+                <SponsorDashboard />
+              </ProtectedRoute>
+            }
           />
+
           <Route
             path="sponsor/profile"
-            element={<SponsorProfile />}
+            element={
+              <ProtectedRoute allowedRoles={["sponsor"]}>
+                <SponsorProfile />
+              </ProtectedRoute>
+            }
           />
 
           {/* Attendee Dashboard Routes */}
