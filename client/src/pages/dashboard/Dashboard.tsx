@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
+            <div className="p-3 bg-amber-50 text-amber-600 rounded-xl">
               <Ticket size={24} />
             </div>
             <div>
@@ -74,7 +74,7 @@ const Dashboard: React.FC = () => {
           <h2 className="text-xl font-bold text-gray-900">Your Next Events</h2>
           <Link
             to="/dashboard/tickets"
-            className="text-blue-600 font-medium flex items-center gap-1 hover:gap-2 transition-all"
+            className="text-amber-600 font-medium flex items-center gap-1 hover:gap-2 transition-all"
           >
             See all tickets <ArrowRight size={16} />
           </Link>
@@ -86,11 +86,11 @@ const Dashboard: React.FC = () => {
               <Link
                 key={ticket._id}
                 to={`/dashboard/tickets/${ticket._id}`}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all border-b-4 border-b-blue-500"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all border-b-4 border-b-amber-500"
               >
                 <div className="p-6">
-                  <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full mb-4">{ticket.ticketType.toUpperCase()}</span>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{ticket.eventId.title}</h3>
+                  <span className="inline-block px-3 py-1 bg-amber-50 text-amber-600 text-xs font-semibold rounded-full mb-4">{ticket.ticketType.toUpperCase()}</span>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{ticket.eventId.title}</h3>
                   <div className="space-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                       <Calendar size={14} />
@@ -117,7 +117,7 @@ const Dashboard: React.FC = () => {
             <p className="text-gray-500 mt-2">You haven't registered for any upcoming events yet.</p>
             <Link
               to="/events"
-              className="inline-block mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+              className="inline-block mt-6 px-6 py-2 bg-amber-600 text-white font-semibold rounded-xl hover:bg-amber-700 transition-colors"
             >
               Browse Events
             </Link>
