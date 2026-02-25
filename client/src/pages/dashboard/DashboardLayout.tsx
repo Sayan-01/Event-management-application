@@ -54,13 +54,13 @@ const DashboardLayout: React.FC = () => {
               key={item.path}
               to={item.path}
               className={`flex items-center justify-between p-3 rounded-xl transition-all group ${
-                isActive(item.path) ? "bg-blue-50 text-blue-600" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                isActive(item.path) ? "bg-amber-50 text-amber-600" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
               }`}
             >
               <div className="flex items-center gap-3">
                 <item.icon
                   size={20}
-                  className={isActive(item.path) ? "text-blue-600" : "text-gray-400 group-hover:text-gray-600"}
+                  className={isActive(item.path) ? "text-a-600" : "text-gray-400 group-hover:text-gray-600"}
                 />
                 <span className="font-semibold text-sm">{item.title}</span>
               </div>

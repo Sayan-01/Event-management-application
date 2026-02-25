@@ -67,9 +67,9 @@ const TicketDetail: React.FC = () => {
         <span className="font-medium">Back to Tickets</span>
       </button>
 
-      <div className="bg-white rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden border border-gray-100">
+      <div className="bg-white rounded-3xl shadow-xl shadow-amber-500/5 overflow-hidden border border-gray-100">
         {/* Header Header */}
-        <div className="bg-blue-600 p-8 text-white relative overflow-hidden">
+        <div className="bg-amber-600 p-8 text-white relative overflow-hidden">
           <div className="relative z-10">
             <div className="flex justify-between items-start">
               <div>
@@ -86,7 +86,7 @@ const TicketDetail: React.FC = () => {
           </div>
           {/* Decorative circles */}
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-48 h-48 bg-blue-400/20 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-48 h-48 bg-amber-400/20 rounded-full blur-2xl"></div>
         </div>
 
         <div className="p-8 grid md:grid-cols-3 gap-8">
@@ -96,7 +96,7 @@ const TicketDetail: React.FC = () => {
               <div className="flex items-center gap-4 text-gray-600">
                 <div className="w-10 h-10 bg-gray-50 flex items-center justify-center rounded-xl">
                   <Calendar
-                    className="text-blue-600"
+                    className="text-amber-600"
                     size={20}
                   />
                 </div>
@@ -109,7 +109,7 @@ const TicketDetail: React.FC = () => {
               <div className="flex items-center gap-4 text-gray-600">
                 <div className="w-10 h-10 bg-gray-50 flex items-center justify-center rounded-xl">
                   <Clock
-                    className="text-blue-600"
+                    className="text-amber-600"
                     size={20}
                   />
                 </div>
@@ -122,7 +122,7 @@ const TicketDetail: React.FC = () => {
               <div className="flex items-center gap-4 text-gray-600">
                 <div className="w-10 h-10 bg-gray-50 flex items-center justify-center rounded-xl">
                   <MapPin
-                    className="text-blue-600"
+                    className="text-amber-600"
                     size={20}
                   />
                 </div>
@@ -138,7 +138,7 @@ const TicketDetail: React.FC = () => {
 
           {/* QR Code Column */}
           <div className="flex flex-col items-center justify-center space-y-4">
-            <div className={`p-4 bg-white border-2 ${isCancelled ? "border-gray-200 opacity-50" : "border-blue-100"} rounded-2xl shadow-inner`}>
+            <div className={`p-4 bg-white border-2 ${isCancelled ? "border-gray-200 opacity-50" : "border-amber-100"} rounded-2xl shadow-inner`}>
               <img
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ticket._id}`}
                 alt="QR Code"
