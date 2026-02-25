@@ -1,101 +1,79 @@
-#🎉 Event Management System (EMS)
+# 🎉 Event Management System (EMS)
 
 A full-stack Event Management System designed to manage events, attendees, exhibitors, sponsors, and administrators in a centralized and scalable platform.
 
-📌 Overview
+---
+
+## 📌 Overview
 
 The Event Management System (EMS) helps organizers create and manage events efficiently. It provides role-based dashboards and secure authentication to ensure smooth coordination between different stakeholders.
 
 The system supports:
 
-Event creation and management
+- Event creation and management  
+- User registration and authentication  
+- Ticket management with QR codes  
+- Exhibitor and sponsor coordination  
+- Admin monitoring and reporting  
 
-User registration and authentication
+---
 
-Ticket management with QR codes
+## 🚀 Features
 
-Exhibitor and sponsor coordination
+### 👤 User Authentication
+- Secure registration and login  
+- JWT-based authentication  
+- Role-Based Access Control (RBAC)
 
-Admin monitoring and reporting
+### 📅 Event Management
+- Create, update, and delete events  
+- Manage event details (venue, date, agenda)  
+- Track attendee registrations  
 
-🚀 Features
-👤 User Authentication
+### 🎟 Attendee Dashboard
+- Register for events  
+- View and download tickets  
+- QR-based ticket verification  
+- Manage profile  
 
-Secure registration and login
+### 🏢 Exhibitor Management
+- Booth allocation  
+- Update company details  
+- Event participation tracking  
 
-JWT-based authentication
+### 🤝 Sponsor Management
+- Manage sponsorship details  
+- Upload branding assets  
+- View sponsorship packages  
 
-Role-Based Access Control (RBAC)
+### 🛠 Admin Panel
+- Manage users  
+- Manage events  
+- View reports and analytics  
+- Monitor system performance  
 
-📅 Event Management
+---
 
-Create, update, and delete events
+## 🏗 Tech Stack
 
-Manage event details (venue, date, agenda)
+### 🔹 Backend
+- Node.js  
+- Express.js  
+- MongoDB  
+- JWT Authentication  
 
-Track attendee registrations
+### 🔹 Frontend
+- HTML  
+- CSS  
+- JavaScript  
 
-🎟 Attendee Dashboard
+### 🔹 Tools
+- Git & GitHub  
+- RESTful APIs  
 
-Register for events
+---
 
-View and download tickets
-
-QR-based ticket verification
-
-Manage profile
-
-🏢 Exhibitor Management
-
-Booth allocation
-
-Update company details
-
-Event participation tracking
-
-🤝 Sponsor Management
-
-Manage sponsorship details
-
-Upload branding assets
-
-View sponsorship packages
-
-🛠 Admin Panel
-
-Manage users
-
-Manage events
-
-View reports and analytics
-
-Monitor system performance
-
-🏗 Tech Stack
-🔹 Backend
-
-Node.js
-
-Express.js
-
-MongoDB
-
-JWT Authentication
-
-🔹 Frontend
-
-HTML
-
-CSS
-
-JavaScript
-(Optional: React.js / Bootstrap if used)
-
-🔹 Tools
-
-Git & GitHub
-
-RESTful APIs
+---
 
 ### 3.1 Authentication
 
