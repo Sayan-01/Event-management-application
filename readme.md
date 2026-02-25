@@ -73,7 +73,6 @@ The system supports:
 
 ---
 ### 🔹 API Endpoints
----
 
 ### 3.1 Authentication
 
