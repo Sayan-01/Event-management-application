@@ -7,9 +7,23 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children, allowedRoles }: ProtectedRouteProps) => {
-  const role = localStorage.getItem("role");
+  const storedUser = localStorage.getItem("localUser");
 
-  if (!role || !allowedRoles.includes(role)) {
+  if (!storedUser) {
+    return <Navigate to="/login" replace />;
+  }
+
+  let localUser;
+
+  try {
+    localUser = JSON.parse(storedUser);
+  } catch {
+    return <Navigate to="/login" replace />;
+  }
+
+  const userRole = localUser?.data?.role?.toLowerCase();
+
+  if (!userRole || !allowedRoles.map(r => r.toLowerCase()).includes(userRole)) {
     return <Navigate to="/" replace />;
   }
 
