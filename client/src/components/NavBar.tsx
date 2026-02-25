@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { Toaster } from 'sonner'
@@ -14,10 +14,11 @@ function Navbar() {
     const localUser = useSelector((state: RootState) => state.user.data)
     //console.log(authorization)
 
-
+    const navigate = useNavigate()
     const handleLogout = () => {
         dispatch(remove())
         localStorage.removeItem('localUser')
+        navigate('/')
     }
 
 
@@ -48,11 +49,10 @@ function Navbar() {
                 <div className='font-normal text-gray-500 links text-lg h-full sm:flex hidden items-center'>
                     <ul className='gap-8 flex'>
                         {(localUser?.role == 'organizer' || localUser?.role == 'attendee') &&
-                            <li><Link to={getDashboardLink() || ''} className={getLinkClass('/dashboard')}>Dashboard</Link></li>
+                            <li><Link to={getDashboardLink() || ''} className={getLinkClass((localUser?.role=='attendee'?'/dashboard':'/organizer'))}>Dashboard</Link></li>
                         }
 
                         <li><Link to='/events' className={getLinkClass('/events')}>Events</Link></li>
-                        <li><Link to='/exhibitor' className={getLinkClass('/exhibitor')}>Exhibitor</Link></li>
                         <li><Link to='/sponsor' className={getLinkClass('/sponsor')}>Sponsor</Link></li>
                     </ul>
 
