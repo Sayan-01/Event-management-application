@@ -72,7 +72,7 @@ The system supports:
 - RESTful APIs  
 
 ---
-
+### 🔹 API Endpoints
 ---
 
 ### 3.1 Authentication
@@ -161,28 +161,25 @@ The system supports:
 
 ---
 
-🔐 User Roles
+## 🔐 User Roles
 
-Admin
+- Admin  
+- Organizer  
+- Attendee  
+- Exhibitor  
+- Sponsor  
 
-Organizer
+---
 
-Attendee
+## 📈 Future Enhancements
 
-Exhibitor
+- Payment gateway integration  
+- Email notifications  
+- Real-time event analytics  
+- Mobile application support  
 
-Sponsor
+---
 
-📈 Future Enhancements
-
-Payment gateway integration
-
-Email notifications
-
-Real-time event analytics
-
-Mobile application support
-
-📄 License
+## 📄 License
 
 This project is for educational and academic purposes.
