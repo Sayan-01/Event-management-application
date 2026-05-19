@@ -42,4 +42,5 @@ const SessionSchema = new mongoose_1.Schema({
     endTime: { type: Date, required: true },
     room: { type: String, required: true },
 });
-exports.default = mongoose_1.default.model("Session", SessionSchema);
+const Session = mongoose_1.default.models?.session || mongoose_1.default.model("Session", SessionSchema);
+exports.default = Session;

@@ -38,7 +38,7 @@ const SponsorSchema = new mongoose_1.Schema({
     eventId: { type: mongoose_1.Schema.Types.ObjectId, ref: "Event", required: true },
     userId: { type: mongoose_1.Schema.Types.ObjectId, ref: "User", required: true },
     companyName: { type: String, required: true },
-    tierName: { type: String, required: true },
+    tierName: { type: String },
     benefits: { type: [String], default: [] },
     logoUrl: { type: String },
     websiteUrl: { type: String },
@@ -49,4 +49,5 @@ const SponsorSchema = new mongoose_1.Schema({
     },
     createdAt: { type: Date, default: Date.now },
 });
-exports.default = mongoose_1.default.model("Sponsor", SponsorSchema);
+const Sponsor = mongoose_1.default.models?.sponsor || mongoose_1.default.model("Sponsor", SponsorSchema);
+exports.default = Sponsor;

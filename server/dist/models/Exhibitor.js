@@ -49,4 +49,5 @@ const ExhibitorSchema = new mongoose_1.Schema({
     },
     createdAt: { type: Date, default: Date.now },
 });
-exports.default = mongoose_1.default.model("Exhibitor", ExhibitorSchema);
+const Exhibitor = mongoose_1.default.models?.exhibitor || mongoose_1.default.model("Exhibitor", ExhibitorSchema);
+exports.default = Exhibitor;
