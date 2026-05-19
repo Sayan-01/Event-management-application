@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import type { IEvent } from "../types";
+// import type { IEvent } from "../types";
 import { useSelector } from "react-redux";
 import { toast } from "sonner";
 import { type RootState } from "../redux/store";

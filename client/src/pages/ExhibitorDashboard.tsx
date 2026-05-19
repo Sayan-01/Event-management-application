@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { type RootState } from "../redux/store";
-import { Store, Building2, BarChart3, Calendar, MapPin, ChevronRight, ExternalLink, LayoutDashboard, PlusCircle, ArrowUpRight, Info } from "lucide-react";
+import { Store, Building2, BarChart3, Calendar, MapPin, LayoutDashboard, PlusCircle, ArrowUpRight } from "lucide-react";
 import Loading from "../components/Loading";
 
 const ExhibitorDashboard = () => {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { type RootState } from "../redux/store";
 import axios from "axios";
 import { toast } from "sonner";
-import { Loader2, Globe, Building, Mail, Phone, AlignLeft, Image as ImageIcon, ArrowLeft } from "lucide-react";
+import { Loader2, Globe, Building, Mail,  AlignLeft, Image as ImageIcon, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SponsorProfile = () => {

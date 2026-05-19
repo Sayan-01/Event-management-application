@@ -10,12 +10,13 @@ export interface IUser {
 }
 
 export type userStateType = {
-    data: IUser | {};
-    authorization: string | null
+    data: IUser | null;
+    authorization: string | null;
+    role?: "admin" | "organizer" | "attendee" | "exhibitor" | "sponsor";
 }
 
 const initialState: userStateType = {
-    data: {},
+    data: null,
     authorization: ''
 }
 
@@ -28,7 +29,7 @@ const userSlice = createSlice({
             state.authorization = action.payload.authorization;
         },
         remove: (state) => {
-            state.data = {};
+            state.data = null;
             state.authorization = null;
         }
     }

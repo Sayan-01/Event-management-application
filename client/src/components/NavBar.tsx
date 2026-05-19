@@ -31,9 +31,9 @@ function Navbar() {
     }
 
     const getDashboardLink = () => {
-        if (localUser.role == 'organizer') {
+        if (localUser!.role == 'organizer') {
             return '/organizer'
-        } else if (localUser.role == 'attendee') {
+        } else if (localUser!.role == 'attendee') {
             return '/dashboard'
         }
     }
@@ -75,7 +75,7 @@ function Navbar() {
                     )}
                 </div>
                 <div className=" small-dd sm:hidden block">
-                    <Drawer authorization={authorization as string} handleLogout={handleLogout} localUser={localUser} />
+                    <Drawer authorization={authorization as string} handleLogout={handleLogout} localUser={{ data: localUser, authorization }} />
                 </div>
                 <div className='trans-border absolute bottom-0 w-full h-px
                   bg-linear-to-r from-transparent via-orange-400 to-transparent'></div>
