@@ -32,31 +32,18 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const UserSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    mobileNumber: { type: String, required: true },
+    password: { type: String, required: true, select: false },
     role: {
         type: String,
         enum: ["admin", "organizer", "attendee", "exhibitor", "sponsor"],
         default: "attendee",
     },
-    createdAt: { type: Date, default: Date.now },
-});
-UserSchema.pre("save", async function (next) {
-    if (!this.isModified("password"))
-        return next();
-    const salt = await bcryptjs_1.default.genSalt(10);
-    this.password = await bcryptjs_1.default.hash(this.password, salt);
-    next();
-});
-UserSchema.methods.comparePassword = async function (password) {
-    return await bcryptjs_1.default.compare(password, this.password);
-};
-exports.default = mongoose_1.default.model("User", UserSchema);
+}, { timestamps: true });
+const User = mongoose_1.default.models?.user || mongoose_1.default.model("User", UserSchema);
+exports.default = User;

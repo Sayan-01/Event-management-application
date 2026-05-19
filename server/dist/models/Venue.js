@@ -42,4 +42,5 @@ const VenueSchema = new mongoose_1.Schema({
     amenities: { type: [String], default: [] },
     createdAt: { type: Date, default: Date.now },
 });
-exports.default = mongoose_1.default.model("Venue", VenueSchema);
+const Venue = mongoose_1.default.models?.venue || mongoose_1.default.model("Venue", VenueSchema);
+exports.default = Venue;

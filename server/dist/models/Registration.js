@@ -50,4 +50,5 @@ const RegistrationSchema = new mongoose_1.Schema({
     },
     registeredAt: { type: Date, default: Date.now },
 });
-exports.default = mongoose_1.default.model("Registration", RegistrationSchema);
+const Registration = mongoose_1.default.models?.registration || mongoose_1.default.model("Registration", RegistrationSchema);
+exports.default = Registration;
