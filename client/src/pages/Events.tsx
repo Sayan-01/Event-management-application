@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 const Events = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
-    const [eventsData, setEventsData] = useState<IEvent[]>([])
+    const [eventsData, setEventsData] = useState<any[]>([])
 
     const [type, setType] = useState("")
     const [minPrice, setMinPrice] = useState("")
@@ -21,7 +21,7 @@ const Events = () => {
                 const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/events`)
                 setEventsData(res.data)
             } catch (error: any) {
-                setError('Failed to fetch event data')
+                setError(`Failed to fetch event data, ${error}`,)
             } finally {
                 setLoading(false)
             }

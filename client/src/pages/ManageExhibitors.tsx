@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { type RootState } from "../redux/store";
 import { toast } from "sonner";
 import Loading from "../components/Loading";
-import { CheckCircle2, XCircle, Clock, Trash2, ExternalLink, ArrowLeft, Store, Search, Layout } from "lucide-react";
+import { CheckCircle2, XCircle, Clock, Trash2, ArrowLeft, Store, Search, Layout } from "lucide-react";
 
 const ManageExhibitors = () => {
   const { eventId } = useParams();

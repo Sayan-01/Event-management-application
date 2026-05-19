@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { type RootState } from "../redux/store";
-import { Trophy, Image as ImageIcon, BarChart3, Calendar, MapPin, ShieldCheck, ExternalLink, X, PlusCircle, LayoutDashboard, ArrowRight, Loader2, Info } from "lucide-react";
+import { Trophy, Image as ImageIcon, Calendar, MapPin, PlusCircle, LayoutDashboard, ArrowRight } from "lucide-react";
 import Loading from "../components/Loading";
 
 const SponsorDashboard = () => {
@@ -12,7 +12,7 @@ const SponsorDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("active");
   const navigate = useNavigate()
-  const isProfileComplete = (user as any)?.companyName && (user as any)?.logoUrl;
+  // const isProfileComplete = (user as any)?.companyName && (user as any)?.logoUrl;
 
   useEffect(() => {
     console.log(user)
